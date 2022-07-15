@@ -12,4 +12,11 @@ import lombok.NoArgsConstructor;
 public class ResponseItemAllDto {
 
 	private List<ItemAllDto> items = new ArrayList<>();
+
+	private int totalPrice;
+
+	public ResponseItemAllDto(List<ItemAllDto> items) {
+		this.items = items;
+		this.totalPrice = items.stream().mapToInt(ItemAllDto::getPrice).sum();
+	}
 }

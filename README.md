@@ -4,8 +4,10 @@
 - BackEnd
   - Spring Boot 2.7.1
   - Spring Data Jpa
+  - query dsl 
   - Mysql 8.0.28
   - Gradle 7.4.1
+  - hibernate 5.6.5.Final([버전 정보](https://hibernate.org/orm/))
 
 Rule
 - COMMIT
