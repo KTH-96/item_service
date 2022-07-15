@@ -17,10 +17,11 @@ public class Item {
 	private Long id;
 
 	@Enumerated(EnumType.STRING)
-	private Category category;
-
-	@Enumerated(EnumType.STRING)
 	private Brand brand;
 
+	@Enumerated(EnumType.STRING)
+	private Category category;
+
 	private int price;
+
 }

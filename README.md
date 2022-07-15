@@ -13,4 +13,4 @@ Rule
   - refactor_#(ISSUE_NUMBER):MESSAGE
   - chore_#(ISSUE_NUMBER):MESSAGE
 
-## [API설계](https://gilded-spade-880.notion.site/itemService-df71eebf747e4ed6b5ea50964ef3e319)
+## [API설계 및 에러 해결](https://gilded-spade-880.notion.site/itemService-df71eebf747e4ed6b5ea50964ef3e319)
