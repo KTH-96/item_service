@@ -9,6 +9,7 @@ import com.app.itemservice.web.dto.item.response.ResponseItemBrandDto;
 import com.app.itemservice.web.dto.item.response.ResponseItemCategoryDto;
 import com.app.itemservice.web.dto.item.response.ResponseItemDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -49,5 +50,10 @@ public class ItemController {
 	@PostMapping("/{id}")
 	public ResponseItemDto update(@PathVariable Long id, @RequestBody RequestItemDto dto) {
 		return itemQueryStringService.update(id, dto);
+	}
+
+	@DeleteMapping("/{id}")
+	public ResponseItemDto delete(@PathVariable Long id) {
+		return itemQueryStringService.delete(id);
 	}
 }

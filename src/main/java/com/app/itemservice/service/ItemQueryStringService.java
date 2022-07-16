@@ -22,9 +22,20 @@ public class ItemQueryStringService {
 
 	@Transactional
 	public ResponseItemDto update(Long id, RequestItemDto dto) {
-		Item item = itemRepository.findById(id)
-			.orElseThrow(RuntimeException::new);
+		Item item = findItemByItemIdOrThrow(id);
 		item.update(dto);
 		return new ResponseItemDto(Item.toItemDto(item));
+	}
+
+	@Transactional
+	public ResponseItemDto delete(Long id) {
+		Item item = findItemByItemIdOrThrow(id);
+		itemRepository.delete(item);
+		return new ResponseItemDto(Item.toItemDto(item));
+	}
+
+	private Item findItemByItemIdOrThrow(Long id) {
+		return itemRepository.findById(id)
+			.orElseThrow(RuntimeException::new);
 	}
 }
