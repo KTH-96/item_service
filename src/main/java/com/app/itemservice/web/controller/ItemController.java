@@ -2,6 +2,7 @@ package com.app.itemservice.web.controller;
 
 import com.app.itemservice.service.ItemService;
 import com.app.itemservice.web.dto.item.ResponseItemAllDto;
+import com.app.itemservice.web.dto.item.ResponseItemBrandDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,5 +18,10 @@ public class ItemController {
 	@GetMapping("/low_price/all")
 	public ResponseItemAllDto all() {
 		return itemService.findAllLowPrice();
+	}
+
+	@GetMapping("/low_price/brand")
+	public ResponseItemBrandDto brand() {
+		return itemService.findBrandLowPrice();
 	}
 }
