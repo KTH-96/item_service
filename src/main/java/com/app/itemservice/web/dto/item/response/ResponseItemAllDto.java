@@ -1,5 +1,6 @@
-package com.app.itemservice.web.dto.item;
+package com.app.itemservice.web.dto.item.response;
 
+import com.app.itemservice.web.dto.item.ItemAllDto;
 import java.util.ArrayList;
 import java.util.List;
 import lombok.AllArgsConstructor;

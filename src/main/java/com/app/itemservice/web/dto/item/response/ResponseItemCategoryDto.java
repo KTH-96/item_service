@@ -1,5 +1,6 @@
-package com.app.itemservice.web.dto.item;
+package com.app.itemservice.web.dto.item.response;
 
+import com.app.itemservice.web.dto.item.ItemCategoryDto;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

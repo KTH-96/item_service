@@ -6,21 +6,18 @@ import com.app.itemservice.domain.item.repository.ItemBrandRepository;
 import com.app.itemservice.domain.item.repository.ItemCategoryRepository;
 import com.app.itemservice.web.dto.item.ItemAllDto;
 import com.app.itemservice.web.dto.item.ItemBrandDto;
-import com.app.itemservice.web.dto.item.ItemCategoryDto;
-import com.app.itemservice.web.dto.item.ResponseItemAllDto;
-import com.app.itemservice.web.dto.item.ResponseItemBrandDto;
-import com.app.itemservice.web.dto.item.ResponseItemCategoryDto;
+import com.app.itemservice.web.dto.item.response.ResponseItemAllDto;
+import com.app.itemservice.web.dto.item.response.ResponseItemBrandDto;
+import com.app.itemservice.web.dto.item.response.ResponseItemCategoryDto;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-@Slf4j
 @RequiredArgsConstructor
 @Service
-public class ItemService {
+public class ItemSearchService {
 
 	private final ItemAllRepository itemAllRepository;
 

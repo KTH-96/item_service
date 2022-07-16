@@ -8,7 +8,6 @@ import com.app.itemservice.web.dto.item.ItemCategoryDto;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import java.util.List;
 import javax.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 

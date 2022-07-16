@@ -1,4 +1,4 @@
-package com.app.itemservice.web.dto.item;
+package com.app.itemservice.web.dto.item.response;
 
 import com.app.itemservice.domain.item.Brand;
 import lombok.AllArgsConstructor;
