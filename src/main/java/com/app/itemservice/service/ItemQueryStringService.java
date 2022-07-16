@@ -1,7 +1,11 @@
 package com.app.itemservice.service;
 
+import static com.app.itemservice.exception.ErrorMessage.*;
+
 import com.app.itemservice.domain.item.Item;
 import com.app.itemservice.domain.item.repository.ItemRepository;
+import com.app.itemservice.exception.CustomException;
+import com.app.itemservice.exception.ErrorMessage;
 import com.app.itemservice.web.dto.item.request.RequestItemDto;
 import com.app.itemservice.web.dto.item.response.ResponseItemDto;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +40,6 @@ public class ItemQueryStringService {
 
 	private Item findItemByItemIdOrThrow(Long id) {
 		return itemRepository.findById(id)
-			.orElseThrow(RuntimeException::new);
+			.orElseThrow(() -> new CustomException(ITEM_ID_NOT_FOUND));
 	}
 }
