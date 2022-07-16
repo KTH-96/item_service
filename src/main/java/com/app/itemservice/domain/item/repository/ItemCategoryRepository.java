@@ -8,6 +8,7 @@ import com.app.itemservice.web.dto.item.ItemCategoryDto;
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.JPAExpressions;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import java.util.List;
 import javax.persistence.EntityManager;
 import org.springframework.stereotype.Repository;
 
@@ -22,7 +23,7 @@ public class ItemCategoryRepository {
 		this.queryFactory = new JPAQueryFactory(em);
 	}
 
-	public ItemCategoryDto findByCategoryLowPrice(Category category) {
+	public List<ItemCategoryDto> findByCategoryLowAndHighPrice(Category category) {
 		return queryFactory
 			.select(Projections.bean(ItemCategoryDto.class,
 				item.brand,
@@ -37,30 +38,18 @@ public class ItemCategoryRepository {
 						.where(
 							subItem.category.eq(item.category)
 						)
+				).or(
+					item.price.eq(
+						JPAExpressions.select(subItem.price.max())
+							.from(subItem)
+							.where(
+								subItem.category.eq(item.category)
+							)
+					)
 				)
 			)
+			.orderBy(item.price.asc())
 			.distinct()
-			.fetchOne();
-	}
-
-	public ItemCategoryDto findByCategoryHighPrice(Category category) {
-		return queryFactory
-			.select(Projections.bean(ItemCategoryDto.class,
-				item.brand,
-				item.price)
-			)
-			.from(item)
-			.where(
-				item.category.eq(category),
-				item.price.eq(
-					JPAExpressions.select(subItem.price.max())
-						.from(subItem)
-						.where(
-							subItem.category.eq(item.category)
-						)
-				)
-			)
-			.distinct()
-			.fetchOne();
+			.fetch();
 	}
 }

@@ -6,6 +6,7 @@ import com.app.itemservice.domain.item.repository.ItemBrandRepository;
 import com.app.itemservice.domain.item.repository.ItemCategoryRepository;
 import com.app.itemservice.web.dto.item.ItemAllDto;
 import com.app.itemservice.web.dto.item.ItemBrandDto;
+import com.app.itemservice.web.dto.item.ItemCategoryDto;
 import com.app.itemservice.web.dto.item.response.ResponseItemAllDto;
 import com.app.itemservice.web.dto.item.response.ResponseItemBrandDto;
 import com.app.itemservice.web.dto.item.response.ResponseItemCategoryDto;
@@ -42,7 +43,6 @@ public class ItemSearchService {
 
 	@Transactional(readOnly = true)
 	public ResponseItemCategoryDto findCategoryLowAndHighPrice(Category category) {
-		return new ResponseItemCategoryDto(itemCategoryRepository.findByCategoryLowPrice(category),
-			itemCategoryRepository.findByCategoryHighPrice(category));
+		return new ResponseItemCategoryDto(itemCategoryRepository.findByCategoryLowAndHighPrice(category));
 	}
 }
