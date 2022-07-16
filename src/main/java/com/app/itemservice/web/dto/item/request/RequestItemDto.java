@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RequestItemAddDto {
+public class RequestItemDto {
 
 	private Category category;
 

@@ -1,6 +1,7 @@
 package com.app.itemservice.domain.item;
 
 import com.app.itemservice.web.dto.item.ItemDto;
+import com.app.itemservice.web.dto.item.request.RequestItemDto;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -42,5 +43,11 @@ public class Item {
 			item.brand,
 			item.price
 		);
+	}
+
+	public void update(RequestItemDto dto) {
+		this.category = dto.getCategory();
+		this.brand = dto.getBrand();
+		this.price = dto.getPrice();
 	}
 }

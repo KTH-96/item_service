@@ -2,8 +2,8 @@ package com.app.itemservice.service;
 
 import com.app.itemservice.domain.item.Item;
 import com.app.itemservice.domain.item.repository.ItemRepository;
-import com.app.itemservice.web.dto.item.request.RequestItemAddDto;
-import com.app.itemservice.web.dto.item.response.ResponseItemAddDto;
+import com.app.itemservice.web.dto.item.request.RequestItemDto;
+import com.app.itemservice.web.dto.item.response.ResponseItemDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,10 +15,16 @@ public class ItemQueryStringService {
 	private final ItemRepository itemRepository;
 
 	@Transactional
-	public ResponseItemAddDto add(RequestItemAddDto dto) {
+	public ResponseItemDto add(RequestItemDto dto) {
 		Item savedItem = itemRepository.save(dto.toEntity());
-		return new ResponseItemAddDto(Item.toItemDto(savedItem));
+		return new ResponseItemDto(Item.toItemDto(savedItem));
 	}
 
-
+	@Transactional
+	public ResponseItemDto update(Long id, RequestItemDto dto) {
+		Item item = itemRepository.findById(id)
+			.orElseThrow(RuntimeException::new);
+		item.update(dto);
+		return new ResponseItemDto(Item.toItemDto(item));
+	}
 }
