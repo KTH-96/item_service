@@ -1,11 +1,10 @@
 package com.app.itemservice.service;
 
-import static com.app.itemservice.exception.ErrorMessage.*;
+import static com.app.itemservice.exception.ErrorMessage.ITEM_ID_NOT_FOUND;
 
 import com.app.itemservice.domain.item.Item;
 import com.app.itemservice.domain.item.repository.ItemRepository;
 import com.app.itemservice.exception.CustomException;
-import com.app.itemservice.exception.ErrorMessage;
 import com.app.itemservice.web.dto.item.request.RequestItemDto;
 import com.app.itemservice.web.dto.item.response.ResponseItemDto;
 import lombok.RequiredArgsConstructor;
